@@ -8,13 +8,15 @@ Write a function named greeting that takes in a string and returns the string in
 Then, write a function named speaker that takes in a string and a callback function. The speaker function should return the string in all uppercase letters only by invoking the callback.
 ------------------------------------------------------------------------------------------------ */
 
-const greeting = (word) => {
-  // Solution code here...
-};
+describe('Testing challenge 1', () => {
+  test('It should return the message with all uppercase characters', () => {
+    expect(speaker('hello 301 students!', greeting)).toStrictEqual('HELLO 301 STUDENTS!');
+  });
+});
 
-const speaker = (message, callback) => {
-  // Solution code here...
-};
+const greeting = (word) => word.toUpperCase();
+
+const speaker = (message, callback) => callback(message);
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 2
@@ -90,7 +92,6 @@ DO NOT CHANGE any of the below code.
 Run your tests from the console: jest challenges-01.test.js
 
 ------------------------------------------------------------------------------------------------ */
-
 describe('Testing challenge 1', () => {
   test('It should return the message with all uppercase characters', () => {
     expect(speaker('hello 301 students!', greeting)).toStrictEqual('HELLO 301 STUDENTS!');
