@@ -87,7 +87,18 @@ Return the resulting output array.
 ------------------------------------------------------------------------------------------------ */
 
 const fizzbuzz = (arr) => {
-  // Solution code here...
+  let results = [];
+  function testNumber(arr){
+    if ((arr % 3 === 0) && (arr % 5 === 0)){
+      results.push('Fizz Buzz');
+    } else if (arr % 3 === 0){
+      results.push('Fizz');
+    } else if (arr % 5 === 0){
+      results.push('Buzz');
+    } else results.push(arr)
+  };
+  arr.forEach(testNumber);
+  return results;
 };
 
 /* ------------------------------------------------------------------------------------------------
