@@ -8,15 +8,13 @@ Write a function named raisedToTheThird that takes in an array of numbers and re
 
 ------------------------------------------------------------------------------------------------ */
 
-describe('Testing challenge 1', () => {
-  test('It should return a new array of numbers raised to the third power', () => {
-    expect(raisedToTheThird([2, 4, 5, -7, 0])).toStrictEqual([8, 64, 125, -343, 0]);
-  });
-});
-
 const raisedToTheThird = (arr) => {
-  // Solution code here...
-}
+  let newArray = [];
+  arr.forEach((num) => {
+    newArray.push(Math.pow(num, 3))
+  });
+  return newArray;
+};
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 2
