@@ -72,20 +72,13 @@ setStatusAsAuthor(people);
 console.log(people[1].isAuthor) prints true
 ------------------------------------------------------------------------------------------------ */
 
-describe('Testing challenge 5', () => {
-  test('It should add a property to every object in an array', () => {
-    const a = [{ fullName: 'Octavia Butler' }, { fullName: 'Ray Bradbury' }, { fullName: 'Kurt Vonnegut' }];
-    setStatusAsAuthor(a);
-
-    expect(a[0].isAuthor).toStrictEqual(true);
-    expect(a[1].isAuthor).toStrictEqual(true);
-    expect(a[2].isAuthor).toStrictEqual(true);
-  });
-});
-
 const setStatusAsAuthor = (people) => {
-  // Solution code here...
+  people.forEach(addIsAuthorProperty)
 };
+
+function addIsAuthorProperty(obj){
+  obj.isAuthor = true;
+}
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 6 - Stretch Goal
