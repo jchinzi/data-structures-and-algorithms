@@ -27,7 +27,7 @@ let $ = createSnippetWithJQuery(`
 `);
 
 const changeAllClassNames = () => {
-  // Solution code here...
+  $('#fruits li').addClass('fruit');
 };
 
 /* ------------------------------------------------------------------------------------------------
