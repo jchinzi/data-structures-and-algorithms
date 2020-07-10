@@ -51,6 +51,7 @@ Write a function named isCapitalized that takes in a string. This function shoul
 
 Return an array containing all the matches.
 ------------------------------------------------------------------------------------------------ */
+
 // describe('Testing challenge 3', () => {
 //   test('It should only return words that begin with a capital letter', () => {
 //     const capitalResult = isCapitalized('We only want to Return the Words that begin With a capital Letter');
@@ -66,7 +67,7 @@ Return an array containing all the matches.
 
 const isCapitalized = (str) => {
   let regex = /\b[A-Z][a-zA-Z]*\b/g;
-  return str.match(regex) || [];
+  return str.match(regex) || [];  //with help from Matt - still don't understand why this is now passing when it wasn't with the || [], as that should only come into play if it does return an empty array, which is not the objective
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -76,7 +77,14 @@ Write a function named citiesAtoJ that takes in an array of city names and uses 
 ------------------------------------------------------------------------------------------------ */
 
 const citiesAtoJ = (arr) => {
-  // Solution code here...
+  let regex = /\b^[A-J][a-z]*\b/;
+  let aJCities = [];
+  arr.forEach((city) => {
+    if(regex.test(city)===true){
+      aJCities.push(city);
+    }
+  })
+  return aJCities;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -185,7 +193,7 @@ describe('Testing challenge 3', () => {
   });
 });
 
-xdescribe('Testing challenge 4', () => {
+describe('Testing challenge 4', () => {
   let cities = ['Cleveland', 'San Diego', 'Birmingham', 'Seattle', 'Miami', 'New York City', 'Omaha', 'Portland', 'Austin', 'Boston', 'Newport Beach', 'Hoboken'];
 
   test('It should return the cities whose names begin with the letters A through J', () => {
