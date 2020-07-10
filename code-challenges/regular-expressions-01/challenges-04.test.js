@@ -9,13 +9,6 @@ CHALLENGE 1 - Review
 Without altering the html, write a function named generateSubmitButton that uses jQuery to create a submit button with the text "submit" and append it to the DOM.
 ------------------------------------------------------------------------------------------------ */
 
-// describe('Testing challenge 1', () => {
-//   test('It should add a submit button to the DOM', () => {
-//     generateSubmitButton();
-//     expect($('button').text()).toStrictEqual('submit');
-//   })
-// });
-
 let $ = createSnippetWithJQuery(`
 <section>
   <form>
@@ -46,8 +39,23 @@ For example:
 'hello world' returns false
 ------------------------------------------------------------------------------------------------ */
 
+// describe('Testing challenge 2', () => {
+//   test('It should return true if the input is a number', () => {
+//     expect(isNum(1234567890)).toBeTruthy();
+//     expect(isNum('12345')).toBeTruthy();
+//   });
+//   test('It should return true if the input contains a number', () => {
+//     expect(isNum('h3llo w0rld')).toBeTruthy();
+//   });
+//   test('It should return false if the input does not contain a number', () => {
+//     expect(isNum('hello world')).toBeFalsy();
+//     expect(isNum('')).toBeFalsy();
+//   });
+// });
+
 const isNum = (input) => {
-  // Solution code here...
+  let regex = /\d/;
+  return regex.test(input);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -151,7 +159,7 @@ describe('Testing challenge 1', () => {
   })
 });
 
-xdescribe('Testing challenge 2', () => {
+describe('Testing challenge 2', () => {
   test('It should return true if the input is a number', () => {
     expect(isNum(1234567890)).toBeTruthy();
     expect(isNum('12345')).toBeTruthy();
