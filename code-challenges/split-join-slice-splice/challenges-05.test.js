@@ -217,8 +217,26 @@ For example:
   console.log(integers) will print [1, 3, 5]
 ------------------------------------------------------------------------------------------------ */
 
+// describe('Testing challenge 7', () => {
+//   test('It should remove the even numbers from the array', () => {
+//     let list = [1, 2, 3, 4, 5, 6];
+//     removeEvenValues(list);
+//     expect(list).toStrictEqual([1, 3, 5]);
+
+//     list = [6, 3, 19, 43, 12, 66, 43];
+//     removeEvenValues(list);
+//     expect(list).toStrictEqual([3, 19, 43, 43]);
+//     expect(list.length).toStrictEqual(4);
+//   });
+// });
+
 const removeEvenValues = (arr) => {
-  // Solution code here...
+  arr.forEach(function(val, index){
+    if (val % 2 === 0){
+      arr.splice(index, val.toString().length);
+    }
+  })
+  return arr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -338,7 +356,7 @@ describe('Testing challenge 6', () => {
   });
 });
 
-xdescribe('Testing challenge 7', () => {
+describe('Testing challenge 7', () => {
   test('It should remove the even numbers from the array', () => {
     let list = [1, 2, 3, 4, 5, 6];
     removeEvenValues(list);
