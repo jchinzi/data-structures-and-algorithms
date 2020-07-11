@@ -47,9 +47,9 @@ let $ = createSnippetWithJQuery(`
 `);
 
 const templateWithJQuery = () => {
-  let template = $('#template').html;
-  let $newSection = $(`<section>${template}</section>`);
+  let template = $('#template').html();
   starWarsPeople.forEach(character => {
+    let $newSection = $(`<section>${template}</section>`);
     $newSection.find('h2').text(character.name);
     $newSection.find('h3').text(character.height);
     $newSection.find('p').text(character.eye_color);
@@ -309,7 +309,7 @@ Run your tests from the console: jest challenges-05.test.js
 
 ------------------------------------------------------------------------------------------------ */
 
-xdescribe('Testing challenge 1', () => {
+describe('Testing challenge 1', () => {
   test('It should append the star wars people to the DOM', () => {
     templateWithJQuery();
     expect($('section:nth-child(2) h2').text()).toStrictEqual('Luke Skywalker');
