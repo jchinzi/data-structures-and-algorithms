@@ -184,7 +184,7 @@ const splitFoods = (recipe) => {
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 6 - Stretch Goal
 
-Use the same recipe from Challenge 3, above.
+Use the same recipe from Challenge 4, above.
 
 Write a function named stepAction that takes in the recipe and extracts the action verbs from the steps. Fortunate for you, the action verbs are the first word of each action.
 
@@ -193,7 +193,14 @@ Return a new array containing just the verbs. For example, ['Mix until evenly di
 
 const stepActions = (recipe) => {
   let result = [];
-  // Solution code here...
+  let splitEvents = [];
+  let longSteps = recipe.steps;
+  longSteps.forEach(step => {
+      splitEvents.push(step.split(' '));
+    })
+  splitEvents.forEach(step => {
+    result.push(step[0])
+  });
   return result;
 };
 
@@ -324,7 +331,7 @@ describe('Testing challenge 5', () => {
   });
 });
 
-xdescribe('Testing challenge 6', () => {
+describe('Testing challenge 6', () => {
   test('It should return a list of recipe steps', () => {
     expect(stepActions(gruffaloCrumble)).toStrictEqual(['Pre-heat', 'De-prickle', 'Sprinkle', 'Mix', 'Grease', 'Combine', 'Fold', 'Spread', 'Bake']);
     expect(stepActions(gruffaloCrumble).length).toStrictEqual(9);
