@@ -80,20 +80,8 @@ const templatingWithMustache = () => {
 
   })
 
-
-
-
-  console.log('My Array', templateArray);
   return templateArray;
 };
-
-// describe('Testing challenge 1', () => {
-//   test('It should return html markup with the character', () => {
-//     const filledTemplates = templatingWithMustache();
-//     const $ = cheerio.load(filledTemplates[0]);
-//     expect($('h2').text()).toStrictEqual('Eddard');
-//   });
-// });
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 2
@@ -108,7 +96,7 @@ const courseInfo = { name: 'Code 301', duration: { dayTrack: '4 weeks', eveningT
 };
 
 const getCourseKeys = (obj) => {
-  // Solution code here...
+  return Object.keys(obj);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -221,7 +209,7 @@ describe('Testing challenge 1', () => {
   });
 });
 
-xdescribe('Testing challenge 2', () => {
+describe('Testing challenge 2', () => {
   test('It should return the keys from an object', () => {
     expect(getCourseKeys(courseInfo)).toStrictEqual(['name', 'duration', 'topics', 'finalExam']);
   });
