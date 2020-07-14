@@ -125,9 +125,28 @@ hasChildrenValues(characters, 'Cersei') will return true
 hasChildrenValues(characters, 'Sansa') will return false
 ------------------------------------------------------------------------------------------------ */
 
-const hasChildrenValues = (arr, character) => {
-  // Solution code here...
+// describe('Testing challenge 4', () => {
+//   test('It should return true for characters that have children', () => {
+//     expect(hasChildrenValues(characters, 'Daenarys')).toBeTruthy();
+//   });
 
+//   test('It should return false to characters who do not have children', () => {
+//     expect(hasChildrenValues(characters, 'Sansa')).toBeFalsy();
+//   });
+// });
+
+const hasChildrenValues = (arr, character) => {
+
+  let parentArray = [];
+
+  arr.forEach(person => {
+    if (Object.values(person.children).length > 0){
+      parentArray.push(person.name);
+    }})
+
+  if (parentArray.includes(character)){
+    return true;
+  } else return false;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -224,7 +243,7 @@ describe('Testing challenge 3', () => {
   });
 });
 
-xdescribe('Testing challenge 4', () => {
+describe('Testing challenge 4', () => {
   test('It should return true for characters that have children', () => {
     expect(hasChildrenValues(characters, 'Daenarys')).toBeTruthy();
   });
