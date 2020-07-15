@@ -33,8 +33,18 @@ You may choose to complete this challenge using a for loop, for...in syntax, or 
 For example, twoToThe([1,2,3]) returns [2,4,8] because 2 ^ 1 = 2, 2 ^ 2 = 4, and 2 ^ 3 = 8.
 ------------------------------------------------------------------------------------------------ */
 
+// describe('Testing challenge 2', () => {
+//   test('It should return two raised to the power of the integer', () => {
+//     expect(forLoopTwoToThe([0, 4, 5])).toStrictEqual([1, 16, 32]);
+//     expect(forLoopTwoToThe([0, 4, 5]).length).toStrictEqual(3);
+//   });
+
 const forLoopTwoToThe = (arr) => {
-  // Solution code here...
+  let newArr = [];
+  for(let value of arr){
+    newArr.push(Math.pow(2,value));
+  }
+  return newArr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -196,7 +206,7 @@ describe('Testing challenge 1', () => {
   })
 });
 
-xdescribe('Testing challenge 2', () => {
+describe('Testing challenge 2', () => {
   test('It should return two raised to the power of the integer', () => {
     expect(forLoopTwoToThe([0, 4, 5])).toStrictEqual([1, 16, 32]);
     expect(forLoopTwoToThe([0, 4, 5]).length).toStrictEqual(3);
