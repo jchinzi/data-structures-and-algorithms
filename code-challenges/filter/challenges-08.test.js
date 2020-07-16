@@ -48,26 +48,11 @@ The callback function to filter should include or utilize a regular expression p
 For example, filterStringsWithVowels('gregor','hound','xyz') returns ['gregor', 'hound'].
 ------------------------------------------------------------------------------------------------ */
 
-
-// describe('Testing challenge 3', () => {
-//   test('It should return an array containing only words that have vowels', () => {
-//     expect(filterStringsWithVowels(['gregor','hound','xyz'])).toStrictEqual(['gregor', 'hound']);
-//     expect(filterStringsWithVowels(['gregor','hound','xyz']).length).toStrictEqual(2);
-//     expect(filterStringsWithVowels(['a', 'b', 'cdefg'])).toStrictEqual(['a', 'cdefg']);
-//     expect(filterStringsWithVowels(['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', ''])).toStrictEqual(['a', 'e', 'i', 'o', 'u']);
-//   });
-
-//   test('It should not contain any words that do not contain vowels', () => {
-//     expect(filterStringsWithVowels(['gregor','hound','xyz'])).not.toContain('xyz');
-//   });
-// });
-
 const filterStringsWithVowels = (arr) => {
   let regex = /[aeiou]/;
   let newArray = arr.filter(word => regex.test(word));
   return newArray;
 };
-
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 4
@@ -78,7 +63,8 @@ For example, notInFirstArray([1,2,3], [1,2,3,4]) returns [4].
 ------------------------------------------------------------------------------------------------ */
 
 const notInFirstArray = (forbiddenValues, arr) => {
-  // Solution code here...
+  let newArr = arr.filter(word => !forbiddenValues.includes(word));
+  return newArr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -260,7 +246,7 @@ describe('Testing challenge 3', () => {
   });
 });
 
-xdescribe('Testing challenge 4', () => {
+describe('Testing challenge 4', () => {
   const firstNums = [1, 2, 3];
   const secondNums = [1, 2, 3, 4];
 
