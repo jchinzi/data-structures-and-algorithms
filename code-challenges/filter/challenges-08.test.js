@@ -49,8 +49,23 @@ For example, filterStringsWithVowels('gregor','hound','xyz') returns ['gregor', 
 ------------------------------------------------------------------------------------------------ */
 
 
+// describe('Testing challenge 3', () => {
+//   test('It should return an array containing only words that have vowels', () => {
+//     expect(filterStringsWithVowels(['gregor','hound','xyz'])).toStrictEqual(['gregor', 'hound']);
+//     expect(filterStringsWithVowels(['gregor','hound','xyz']).length).toStrictEqual(2);
+//     expect(filterStringsWithVowels(['a', 'b', 'cdefg'])).toStrictEqual(['a', 'cdefg']);
+//     expect(filterStringsWithVowels(['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', ''])).toStrictEqual(['a', 'e', 'i', 'o', 'u']);
+//   });
+
+//   test('It should not contain any words that do not contain vowels', () => {
+//     expect(filterStringsWithVowels(['gregor','hound','xyz'])).not.toContain('xyz');
+//   });
+// });
+
 const filterStringsWithVowels = (arr) => {
-  // Solution code here...
+  let regex = /[aeiou]/;
+  let newArray = arr.filter(word => regex.test(word));
+  return newArray;
 };
 
 
@@ -232,7 +247,7 @@ describe('Testing challenge 2', () => {
   });
 });
 
-xdescribe('Testing challenge 3', () => {
+describe('Testing challenge 3', () => {
   test('It should return an array containing only words that have vowels', () => {
     expect(filterStringsWithVowels(['gregor','hound','xyz'])).toStrictEqual(['gregor', 'hound']);
     expect(filterStringsWithVowels(['gregor','hound','xyz']).length).toStrictEqual(2);
