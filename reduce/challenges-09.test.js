@@ -19,6 +19,38 @@ Next, write a function named getCurrentEvents that takes in the request and resp
 
 ------------------------------------------------------------------------------------------------ */
 
+// describe('Testing challenge 1', () => {
+//   test('It should return an array of object instances with a key of author', () => {
+//     expect(mapCurrentEvents()[0].author).toStrictEqual("go");
+//   });
+
+//   test('It should return an array of object instances with a key of categories', () => {
+//     expect(mapCurrentEvents()[0].categories).toStrictEqual(["world"]);
+//   });
+//   const request = require('supertest');
+
+//   let server;
+
+//   beforeEach(function () {
+//     server = createServer();
+//   });
+
+//   afterEach(function () {
+//     server.close();
+//   });
+
+//   test('responds to /events', function testSlash(done) {
+//     request(server)
+//       .get('/events')
+//       .expect(200, done);
+//   });
+
+//   test('404 everything else', function testPath(done) {
+//     request(server)
+//       .get('/foo/bar')
+//       .expect(404, done);
+//   });
+// });
 
 // Express sever here
 const createServer = () => {
@@ -26,7 +58,7 @@ const createServer = () => {
   const app=express();
 
   // Routes go here
-  // Solution code here...
+  app.get('/events', getCurrentEvents);
 
   var server = app.listen(3301, function () {
     var port = server.address().port;
@@ -160,15 +192,21 @@ const currentEvents = {
 }
 
 function getCurrentEvents(request, response){
-  // Solution code here...
+  response.send(mapCurrentEvents());
 }
 
 const mapCurrentEvents = () => {
-  // Solution code here...
-}
+  let currentEventsArray = currentEvents.news.map(happening => new Event(happening))
+  return currentEventsArray
+};
 
 function Event(obj){
-  // Solution code here...
+  this.author = obj.author;
+  this.categories = obj.category;
+  this.summary = obj.description;
+  this.img_url = obj.url;
+  this.date = obj.published;
+  this.title = obj.title;
 }
 
 /* ------------------------------------------------------------------------------------------------
@@ -441,20 +479,20 @@ describe('Testing challenge 1', () => {
   });
 });
 
-describe('Testing challenge 2', () => {
+xdescribe('Testing challenge 2', () => {
   test('It should return the length of the array', () => {
     expect(countNumberOfElements([1, 2, 3, 4, 5])).toStrictEqual(5);
   });
 });
 
-describe('Testing challenge 3', () => {
+xdescribe('Testing challenge 3', () => {
   test('It should return an array continaing the names of the characters', () => {
     expect(returnNames(starWarsData)).toStrictEqual([ 'Luke Skywalker', 'C-3PO', 'R2-D2', 'Darth Vader', 'Leia Organa' ]);
     expect(returnNames(starWarsData).length).toStrictEqual(5);
   });
 });
 
-describe('Testing challenge 4', () => {
+xdescribe('Testing challenge 4', () => {
   test('It should return the string with the characters in reverse order', () => {
     expect(reversedString('Code 301')).toStrictEqual('103 edoC');
   });
