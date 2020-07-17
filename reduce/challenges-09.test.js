@@ -19,39 +19,6 @@ Next, write a function named getCurrentEvents that takes in the request and resp
 
 ------------------------------------------------------------------------------------------------ */
 
-// describe('Testing challenge 1', () => {
-//   test('It should return an array of object instances with a key of author', () => {
-//     expect(mapCurrentEvents()[0].author).toStrictEqual("go");
-//   });
-
-//   test('It should return an array of object instances with a key of categories', () => {
-//     expect(mapCurrentEvents()[0].categories).toStrictEqual(["world"]);
-//   });
-//   const request = require('supertest');
-
-//   let server;
-
-//   beforeEach(function () {
-//     server = createServer();
-//   });
-
-//   afterEach(function () {
-//     server.close();
-//   });
-
-//   test('responds to /events', function testSlash(done) {
-//     request(server)
-//       .get('/events')
-//       .expect(200, done);
-//   });
-
-//   test('404 everything else', function testPath(done) {
-//     request(server)
-//       .get('/foo/bar')
-//       .expect(404, done);
-//   });
-// });
-
 // Express sever here
 const createServer = () => {
   const express=require('express');
@@ -217,8 +184,19 @@ Write a function named countNumberOfElements that, given an array as input, uses
 Note: You may not use the array's built-in length property.
 ------------------------------------------------------------------------------------------------ */
 
+// describe('Testing challenge 2', () => {
+//   test('It should return the length of the array', () => {
+//     expect(countNumberOfElements([1, 2, 3, 4, 5])).toStrictEqual(5);
+//   });
+// });
+
+
 const countNumberOfElements = (arr) => {
-  // Solution code here...
+  let arrLength = arr.reduce((answerSoFar, val, index) => {
+    answerSoFar = answerSoFar + 1;
+    return answerSoFar;
+  }, 0)
+  return arrLength;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -479,7 +457,7 @@ describe('Testing challenge 1', () => {
   });
 });
 
-xdescribe('Testing challenge 2', () => {
+describe('Testing challenge 2', () => {
   test('It should return the length of the array', () => {
     expect(countNumberOfElements([1, 2, 3, 4, 5])).toStrictEqual(5);
   });
