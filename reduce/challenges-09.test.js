@@ -184,13 +184,6 @@ Write a function named countNumberOfElements that, given an array as input, uses
 Note: You may not use the array's built-in length property.
 ------------------------------------------------------------------------------------------------ */
 
-// describe('Testing challenge 2', () => {
-//   test('It should return the length of the array', () => {
-//     expect(countNumberOfElements([1, 2, 3, 4, 5])).toStrictEqual(5);
-//   });
-// });
-
-
 const countNumberOfElements = (arr) => {
   let arrLength = arr.reduce((answerSoFar, val, index) => {
     answerSoFar = answerSoFar + 1;
@@ -256,7 +249,11 @@ let starWarsData = [{
 }];
 
 const returnNames = (arr) => {
-  // Solution code here...
+  let namesArray = arr.reduce((answerSoFar, val, index) => {
+    answerSoFar.push(val.name);
+    return answerSoFar;
+  }, [])
+  return namesArray;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -463,7 +460,7 @@ describe('Testing challenge 2', () => {
   });
 });
 
-xdescribe('Testing challenge 3', () => {
+describe('Testing challenge 3', () => {
   test('It should return an array continaing the names of the characters', () => {
     expect(returnNames(starWarsData)).toStrictEqual([ 'Luke Skywalker', 'C-3PO', 'R2-D2', 'Darth Vader', 'Leia Organa' ]);
     expect(returnNames(starWarsData).length).toStrictEqual(5);
