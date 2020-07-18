@@ -1,5 +1,7 @@
 'use strict';
 
+const { request, response } = require('express');
+
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 1 - Review
 
@@ -7,7 +9,13 @@ Build a simple express server. Connect a '/hello' route that sends a greeting of
 ------------------------------------------------------------------------------------------------ */
 
 const createServer = () => {
-  // Solution code here...
+
+  const express = require('express');
+  const app = express();
+
+  app.get('/hello', (request, response) => response.send('Hello World'));
+  app.get('/aboutme', (request, response) => response.send('My name is Jen and I\'m a software developer!'));
+  app.get('/favoritefoods', (request, response) => response.send('[Burritos, Thai, Sushi]'));
 
   var server = app.listen(3301, function () {
     var port = server.address().port;
