@@ -75,6 +75,17 @@ Write a function named getBaseStatGreaterThan that, given the snorlaxData, below
 For example, getBaseStatGreaterThan(snorlaxData.stats, 50) will return an array containing the 'special-defense' and 'special-attack' objects.
 ------------------------------------------------------------------------------------------------ */
 
+// describe('Testing challenge 5', () => {
+//   test('It should return an array containing the stats that are greater than the input', () => {
+//     expect(getBaseStatGreaterThan(snorlaxData.stats, 75)).toStrictEqual([ { stat: { url: 'https://pokeapi.co/api/v2/stat/5/', name: 'special-defense' }, effort: 2, baseStat: 110 } ]);
+//     expect(getBaseStatGreaterThan(snorlaxData.stats, 75).length).toStrictEqual(1);
+//     expect(getBaseStatGreaterThan(snorlaxData.stats, 110)).toStrictEqual([]);
+//   });
+//   test('It should work for non-Snorlax data', () => {
+//     expect(getBaseStatGreaterThan([{baseStat: 10}, {baseStat: -85}, {baseStat: 0}, {baseStat: -50}], -60)).toStrictEqual([{baseStat: 10}, {baseStat: 0}, {baseStat: -50}]);
+//   });
+// });
+
 const snorlaxData = {
   stats: [
     {
@@ -107,8 +118,8 @@ const snorlaxData = {
 };
 
 const getBaseStatGreaterThan = (arr, minBaseStat) => {
-  // Solution code here...
-};
+  let betterStatsArr = arr.filter(entry => entry.baseStat > minBaseStat)
+  return betterStatsArr;};
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 6 - Stretch Goal
@@ -270,7 +281,7 @@ describe('Testing challenge 4', () => {
   });
 });
 
-xdescribe('Testing challenge 5', () => {
+describe('Testing challenge 5', () => {
   test('It should return an array containing the stats that are greater than the input', () => {
     expect(getBaseStatGreaterThan(snorlaxData.stats, 75)).toStrictEqual([ { stat: { url: 'https://pokeapi.co/api/v2/stat/5/', name: 'special-defense' }, effort: 2, baseStat: 110 } ]);
     expect(getBaseStatGreaterThan(snorlaxData.stats, 75).length).toStrictEqual(1);
