@@ -95,8 +95,14 @@ For example, findTagNames(['<h1>Hello, world!</h1>', '<p>Welcome to my site</p>'
 findTagNames(['<div><h1>Hello, world!</h1></div>', '<p>Welcome to my site</p>']) returns ['/h1', '/div', '/p'].
 ------------------------------------------------------------------------------------------------ */
 
+// Not Yet Passing - REGEX works
+
 const findTagNames = elements => {
-  // Solution code here...
+  let regex = /\/[a-z0-9]*/g;
+  let tagArr = elements.map(str => {
+    return str.match(regex)[0];
+  })
+  return tagArr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -186,7 +192,7 @@ describe('Testing challenge 4', () => {
   });
 });
 
-xdescribe('Testing challenge 5', () => {
+describe('Testing challenge 5', () => {
   test('It should return the closing tags', () => {
     expect(findTagNames(['<h1>Hello, world!</h1>', '<p>Welcome to my site</p>'])).toStrictEqual(['/h1', '/p']);
   });
