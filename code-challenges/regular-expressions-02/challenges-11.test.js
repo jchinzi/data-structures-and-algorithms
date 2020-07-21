@@ -80,7 +80,10 @@ Return either true or false.
 ------------------------------------------------------------------------------------------------ */
 
 const validatePhoneNumber = (phoneNumber) => {
-  // Solution code here...
+  let regex = /^(\(?\d{3}\)|\d{3})-?\s?\d{3}-?\s?\d{4}$/;
+  if(regex.test(phoneNumber)){
+    return true;
+  } else return false;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -159,7 +162,7 @@ describe('Testing challenge 3', () => {
   });
 });
 
-xdescribe('Testing challenge 4', () => {
+describe('Testing challenge 4', () => {
   test('It should match the acceptable phone number formats', () => {
     expect(validatePhoneNumber('(555) 555-5555')).toBeTruthy();
     expect(validatePhoneNumber('555 555-5555')).toBeTruthy();
