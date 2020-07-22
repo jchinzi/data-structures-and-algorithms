@@ -97,7 +97,13 @@ Write a function named allHappy that takes in an array of strings and returns a 
 ------------------------------------------------------------------------------------------------ */
 
 const allHappy = (arr) => {
-  // Solution code here...
+  let status = true;
+  arr.forEach(string => {
+    if (!string.includes(':)')){
+      status = false;
+    }
+  })
+  return status;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -233,7 +239,7 @@ describe('Testing challenge 5', () => {
   });
 });
 
-xdescribe('Testing challenge 6', () => {
+describe('Testing challenge 6', () => {
   test('It should correctly assess whether all the strings are happy', () => {
     const words = ['things', 'apple (:)', ':)banana', 'missing that thing', 'cant:)aloupe'];
 
