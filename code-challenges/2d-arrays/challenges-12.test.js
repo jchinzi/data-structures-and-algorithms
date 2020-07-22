@@ -93,8 +93,17 @@ const errands = [
 ];
 
 const howManyTreats = (arr) => {
-  // Solution code here...
-};
+  let treatCounter = 0;
+  for(let i=0; i<arr.length; i++){
+    let thisArray = arr[i].items;
+    for(let j=0; j<arr[i].items.length; j++){
+      if(thisArray[j].name === 'Treats'){
+        treatCounter = treatCounter + thisArray[j].quantity;
+      }
+    }
+  }
+  return treatCounter;
+  };
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 5 - Stretch Goal
@@ -234,7 +243,7 @@ describe('Testing challenge 3', () => {
   });
 });
 
-xdescribe('Testing challenge 4', () => {
+describe('Testing challenge 4', () => {
   test('It should return the number 24', () => {
     expect(howManyTreats(errands)).toStrictEqual(24);
   });
