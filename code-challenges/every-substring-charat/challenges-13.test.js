@@ -81,7 +81,13 @@ For example, 'abcdefg' returns 'bdf'
 ------------------------------------------------------------------------------------------------ */
 
 const onlyOddChars = (str) => {
-  // Solution code here...
+  let oddArr = [];
+  for (let i = 0; i<str.length; i++){
+    if (i%2 === 1){
+      oddArr.push(str[i]);
+    }
+  }
+  return oddArr.join('');
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -91,7 +97,13 @@ Write a function named allHappy that takes in an array of strings and returns a 
 ------------------------------------------------------------------------------------------------ */
 
 const allHappy = (arr) => {
-  // Solution code here...
+  let status = true;
+  arr.forEach(string => {
+    if (!string.includes(':)')){
+      status = false;
+    }
+  })
+  return status;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -101,7 +113,8 @@ Write a function named findAnything that takes in an array of strings, along wit
 ------------------------------------------------------------------------------------------------ */
 
 const findAnything = (arr, target) => {
-  // Solution code here...
+  let justTheseArr = arr.filter(str => str.includes(target))
+  return justTheseArr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -111,7 +124,13 @@ Write a function named findEvery that takes in an array of strings, along with a
 ------------------------------------------------------------------------------------------------ */
 
 const findEvery = (arr, target) => {
-  // Solution code here...
+  let status = true;
+  arr.forEach(str => {
+    if (!str.includes(target)){
+      status = false;
+    }
+  })
+  return status; 
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -127,7 +146,18 @@ For example, [['Brook Testing', 'Actual Person'], ['Human Person', 'Brook again'
 ------------------------------------------------------------------------------------------------ */
 
 const unenrollBrook = (arr) => {
-  // Solution code here...
+  let brookLess = [];
+  for (let i=0; i<arr.length; i++){
+    let thisClass = [];
+    for (let j=0; j<arr[i].length; j++){
+      let thisStudent = arr[i][j];
+      if(!thisStudent.includes('Brook')){
+        thisClass.push(arr[i][j])
+      }
+    }
+  brookLess.push(thisClass);
+  }
+return brookLess;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -154,7 +184,17 @@ For example, ['Tuesday', 'Monday', 'Wednesday and Thursday', 'Tuesday 2', 'Thurs
 const daysOfWeek = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
 
 const sortByDay = (arr) => {
-  // Solution code here...
+  let weeklySchedule = [];
+  daysOfWeek.forEach(day => {
+    let dailySchedule = [];
+    arr.forEach(event => {
+      if (event.includes(day)){
+        dailySchedule.push(event);
+      }
+    })
+    weeklySchedule.push(dailySchedule);
+  })
+return weeklySchedule;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -166,7 +206,11 @@ For example, ['abcd', 'efgh', 'ijkl', 'mnop'] returns ['a', 'f', 'k', 'p']
 ------------------------------------------------------------------------------------------------ */
 
 const characterByIndex = (arr) => {
-  // Solution code here...
+  let charArray = [];
+  for (let i=0; i<arr.length; i++){
+    charArray.push(arr[i].charAt(i));
+  }
+return charArray;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -218,7 +262,7 @@ describe('Testing challenge 4', () => {
   });
 });
 
-xdescribe('Testing challenge 5', () => {
+describe('Testing challenge 5', () => {
   test('It should only return the odd indexed characters from the string', () => {
     expect(onlyOddChars('0123456789')).toStrictEqual('13579');
     expect(onlyOddChars('abcd')).toStrictEqual('bd');
@@ -227,7 +271,7 @@ xdescribe('Testing challenge 5', () => {
   });
 });
 
-xdescribe('Testing challenge 6', () => {
+describe('Testing challenge 6', () => {
   test('It should correctly assess whether all the strings are happy', () => {
     const words = ['things', 'apple (:)', ':)banana', 'missing that thing', 'cant:)aloupe'];
 
@@ -237,7 +281,7 @@ xdescribe('Testing challenge 6', () => {
   });
 });
 
-xdescribe('Testing challenge 7', () => {
+describe('Testing challenge 7', () => {
   test('It should find all the strings that contain a given string', () => {
     const words = ['things', 'apple (:)', ':)banana', 'missing that thing', 'cant:)aloupe'];
 
@@ -246,7 +290,7 @@ xdescribe('Testing challenge 7', () => {
   });
 });
 
-xdescribe('Testing challenge 8', () => {
+describe('Testing challenge 8', () => {
   test('It should determine whether all the strings contain a given string', () => {
     const words = ['things', 'apple pie (:)', ':)banana pie', 'missing that thing', 'cant:)aloupe is tasty'];
 
@@ -256,7 +300,7 @@ xdescribe('Testing challenge 8', () => {
   });
 });
 
-xdescribe('Testing challenge 9', () => {
+describe('Testing challenge 9', () => {
   test('It should remove Brook from all courses', () => {
     const roster = [
       ['Michelle', 'Allie', 'Brook TESTING'],
@@ -274,7 +318,7 @@ xdescribe('Testing challenge 9', () => {
   });
 });
 
-xdescribe('Testing challenge 10', () => {
+describe('Testing challenge 10', () => {
   test('It should sort events by the day on which they happen', () => {
     const events = ['Dancing on Mondays and Tuesdays', 'Meet the inventors! Monday, August 7', 'in the club on a Tuesday', 'Thursday Night Code', 'Saturday Night Fever'];
     const sortedEvents = sortByDay(events);
@@ -298,7 +342,7 @@ xdescribe('Testing challenge 10', () => {
   });
 });
 
-xdescribe('Testing challenge 11', () => {
+describe('Testing challenge 11', () => {
   test('It should return the ith character of the ith string', () => {
     const words = ['apple', 'banana', 'cantaloupe'];
 
