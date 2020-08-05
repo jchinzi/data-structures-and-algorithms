@@ -140,7 +140,24 @@ This data could be sorted by name or price.
 ------------------------------------------------------------------------------------------------ */
 
 const sortBy = (property, arr) => {
-  // Solution code here...
+  if (property === 'price'){
+    arr.sort(function(a,b){return a.price - b.price})
+    return arr; 
+  } else if (property === 'name'){
+    function compare (a,b) {
+      let itemA = a.name.toUpperCase();
+      let itemB = b.name.toUpperCase();
+      let comparison = 0;
+      if (itemA > itemB){
+        comparison = 1;
+      } else if (itemA < itemB){
+        comparison = -1;
+      }
+      return comparison;
+    }
+  arr.sort(compare);
+  return arr;
+  };
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -242,7 +259,7 @@ describe('Testing challenge 3', () => {
   });
 });
 
-xdescribe('Testing challenge 4', () => {
+describe('Testing challenge 4', () => {
   test('It should sort items by a price', () => {
 
     expect(sortBy('price', [
