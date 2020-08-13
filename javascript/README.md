@@ -28,3 +28,25 @@ This way the new value will always be nested in the center of the array and no v
 
 ## Solution
 ![Whiteboard Image](challenges/arrayShift/array-Shift.jpg)
+
+---
+
+# Array Binary Search
+Given a sorted array of numbers and a value, determine if that value is within the array using a binary search.  If the value is in the array, return the index position of the value.  If the value is not in the array, return -1.
+
+## Challenge
+Write a function called BinarySearch which takes in 2 parameters: a sorted array and the search key. Without utilizing any of the built-in methods available to your language, return the index of the array’s element that is equal to the search key, or -1 if the element does not exist.
+
+## Approach & Efficiency
+
+Set a midpoint variable equal to the ‘middle index’
+Compare search key to value of array at midpoint index
+IF they are equal, return midpoint index
+IF the key value is > the array value at midpoint index, redefine the midpoint based on the remaining array values greater than the midpoint and recheck for a match
+IF the key value is < the array value at midpoint index, redefine the midpoint based on the remaining array values less than the midpoint and recheck for a match
+This loop should be able to continue until either:
+The key matches a midpoint and an index is returned OR
+A midpoint does not exist (indicating all values have been checked) and a -1 is returned
+
+## Solution
+![Whiteboard Image](challenges/arrayBinarySearch/binarysearch.png)
