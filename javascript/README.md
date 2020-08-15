@@ -50,3 +50,31 @@ A midpoint does not exist (indicating all values have been checked) and a -1 is 
 
 ## Solution
 ![Whiteboard Image](challenges/arrayBinarySearch/binarysearch.png)
+
+---
+
+# Singly Linked List
+Create a Node class capable of generating a singly linked list that includes methods to insert a new node at the head, check for values present in the list, and return a string of all values in the list per specific formatting instructions.
+
+## Challenge
+
+* Create a Node class that has properties for the value stored in the Node, and a pointer to the next Node.
+* Within your LinkedList class, include a head property. Upon instantiation, an empty Linked List should be created.
+* Define a method called insert which takes any value as an argument and adds a new node with that value to the head of the list with an O(1) Time performance.
+* Define a method called includes which takes any value as an argument and returns a boolean result depending on whether that value exists as a Node’s value somewhere within the list.
+* Define a method called toString which takes in no arguments and returns a string representing all the values in the Linked List, formatted as:
+"{ a } -> { b } -> { c } -> NULL"
+
+## Approach & Efficiency
+
+LinkedList builds off of a Node class by creating new instances of Node that can be either prepended (with insert()) or appended(with append()).  The insert() method has an O value of 1 in that it functions the same way no matter how long the string may be.  Append() and toString() have an O value of n because both needs to traverse the full length of the list before the function can be completed.  Similarly, includes() has a maximum O value of n because if the value does not exist or exists in the final node, the full list will need to be traversed.
+
+## API
+
+* insert() takes in a value and inserts a new node at the head of the list containing that value
+
+* append() takes in a value and inserts a new node at the end of the list containing that value
+
+* includes() takes in a value and traverses the list, checking for that value at each node.  If the value is found, a boolean of true is returned, else a boolean of false is returned
+
+* toString() returns a string containing all values in the list in the order that they are found, ending in NULL to indicate the end of the list
