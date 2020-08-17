@@ -78,3 +78,52 @@ LinkedList builds off of a Node class by creating new instances of Node that can
 * includes() takes in a value and traverses the list, checking for that value at each node.  If the value is found, a boolean of true is returned, else a boolean of false is returned
 
 * toString() returns a string containing all values in the list in the order that they are found, ending in NULL to indicate the end of the list
+
+---
+
+# Linked List - Extended Classes
+Add new classes to our linked list class to allow for more functionality
+
+## Challenge
+Create 3 new methods for the linked list class begun on Friday:
+* .append(value) should add a new node with the given value to the end of the list
+  - Note: .append() method was covered in class with JB => whiteboard will focus on the two new methods
+* .insertBefore(value, newVal) should add a new node with the given newVal immediately before the node with the value of value
+* .insertAfter(value, newVal) should add a new node with the given newVal immediately after the node with the value of value
+
+## Approach & Efficiency
+
+**.insertBefore():**
+* First check for an empty list
+  - If list is empty, console log that list is currently empty and will be instantiated with newVal
+* If the list is not empty, confirm that the target value is included in the list by calling our includes(value) function
+  - This makes our method less efficient but does prevent future errors => room for improvement in later iterations?
+  - If the includes() method returns false, console log the error and stop here.
+* If includes(value) returns true, create a currentNode variable and set it equal to the head node to begin our search
+* Check to see if the value of that initial currentNode is equal to our target value
+  - If it is, we are going to essentially treat this as an ‘insert’ method as the newVal will need to be set as the new head of the list and nothing else will change in a singly linked list
+  - If it is NOT, then we can enter a while loop to traverse our list
+    - Within the while loop, we will be checking the value of the NEXT node against our target value
+    - When the value of the next node equals our target value, we need to
+      - Set the ‘next’ value of our new node to point at the same value as the current node’s ‘next’ value
+      - Then, change the current node’s ‘next’ value to point at our new node.
+
+**.insertAfter():**
+* First check for an empty list
+  - If list is empty, console log that list is currently empty and will be instantiated with newVal
+* If the list is not empty, confirm that the target value is included in the list by calling our includes(value) function
+  - This makes our method less efficient but does prevent future errors => room for improvement in later iterations?
+  - If the includes() method returns false, console log the error and stop here.
+* If includes(value) returns true, create a currentNode variable and set it equal to the head node to begin our search
+* Begin a while loop to traverse our list
+  - Within the while loop, we will be checking the value of the CURRENT node against our target value
+  - When the value of the current node equals our target value, we need to:
+    - Set the ‘next’ value of our new node to point at the same value as the current node’s ‘next’ value
+    - Then, change the current node’s ‘next’ value to point at our new node.
+* If we  traverse the full list and exit the while loop, we will still need to check against the last iteration of the ‘currentNode’ for our target value, performing the above actions if the value matches our target value
+
+**Big O** should be 2n where n is the number of nodes currently in the list (n for the initial includes() check, and up to n for the insert method to traverse the list as far as the target node.
+
+
+## Solution
+![Whiteboard Image](data-structures/linkedList/cc_06_whiteboard.png)

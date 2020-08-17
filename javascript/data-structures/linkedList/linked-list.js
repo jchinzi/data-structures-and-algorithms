@@ -36,6 +36,71 @@ class LinkedList {
     currentNode.next = newNode;
   }
 
+  insertBefore(value, newVal) {
+    const newNode = new Node(newVal);
+
+    if(!this.head){
+      console.log(`List is currently empty - beginning list with new Node ${newVal}`);
+      this.head = newNode;
+      return;
+    }
+
+    if(!this.includes(value)){
+      console.log(`${value} is not included in the list - unable to insert new node of ${newVal} before ${value}.`);
+      return;
+    }
+
+    let currentNode = this.head;
+
+    if(currentNode.value === value){ //checks FIRST node (edge case)
+      this.head = new Node(newVal, currentNode);
+      return
+    } else {
+      while(currentNode.next){
+        if(currentNode.next.value === value){
+          newNode.next = currentNode.next;
+          currentNode.next = newNode;
+          return;
+        } else {
+          currentNode = currentNode.next;
+        }
+      }
+    }
+
+  }
+
+  insertAfter(value, newVal){
+    const newNode = new Node(newVal);
+
+    if(!this.head){
+      console.log(`List is currently empty - beginning list with new Node ${newVal}`);
+      this.head = newNode;
+      return;
+    }
+
+    if(!this.includes(value)){
+      console.log(`${value} is not included in the list - unable to insert new node of ${newVal} after ${value}.`);
+      return;
+    }
+
+    let currentNode = this.head;
+
+    while(currentNode.next){
+      if(currentNode.value === value){
+        newNode.next = currentNode.next;
+        currentNode.next = newNode;
+        return;
+      } else {
+        currentNode = currentNode.next;
+      }
+    }
+    if(currentNode.value === value){ //checks LAST node (edge case)
+      newNode.next = currentNode.next;
+      currentNode.next = newNode;
+      return
+    }
+  }
+
   includes(value) {
     if(!this.head){
       return false;

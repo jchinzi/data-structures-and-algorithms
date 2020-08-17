@@ -34,7 +34,58 @@ it('should append to NOT empty list', () => {
   expect(ll.head.next.value).toBe('apples');
   expect(ll.head.next.next.value).toBe('cucumbers');
   expect(ll.head.next.next.next).toBe(undefined);
+})
 
+it('should add newVal to a list BEFORE the provided value', () => {
+  const ll = new LinkedList();
+  ll.insert('apples');
+  ll.insert('bananas');
+  ll.append('cucumbers');
+  ll.insertBefore('apples', 'watermelon')
+  expect(ll.head.value).toBe('bananas');
+  expect(ll.head.next.value).toBe('watermelon');
+  expect(ll.head.next.next.value).toBe('apples');
+  expect(ll.head.next.next.next.value).toBe('cucumbers');
+  expect(ll.head.next.next.next.next).toBe(undefined);
+})
+
+it('should add newVal to a list BEFORE the provided value even if the provided value is the first node in the list', () => {
+  const ll = new LinkedList();
+  ll.insert('apples');
+  ll.insert('bananas');
+  ll.append('cucumbers');
+  ll.insertBefore('bananas', 'watermelon')
+  expect(ll.head.value).toBe('watermelon');
+  expect(ll.head.next.value).toBe('bananas');
+  expect(ll.head.next.next.value).toBe('apples');
+  expect(ll.head.next.next.next.value).toBe('cucumbers');
+  expect(ll.head.next.next.next.next).toBe(undefined);
+})
+
+it('should add newVal to a list AFTER the provided value', () => {
+  const ll = new LinkedList();
+  ll.insert('apples');
+  ll.insert('bananas');
+  ll.append('cucumbers');
+  ll.insertAfter('apples', 'watermelon')
+  expect(ll.head.value).toBe('bananas');
+  expect(ll.head.next.value).toBe('apples');
+  expect(ll.head.next.next.value).toBe('watermelon');
+  expect(ll.head.next.next.next.value).toBe('cucumbers');
+  expect(ll.head.next.next.next.next).toBe(undefined);
+})
+
+it('should add newVal to a list AFTER the provided value even if the provided value is the last node in the list', () => {
+  const ll = new LinkedList();
+  ll.insert('apples');
+  ll.insert('bananas');
+  ll.append('cucumbers');
+  ll.insertAfter('cucumbers', 'watermelon')
+  expect(ll.head.value).toBe('bananas');
+  expect(ll.head.next.value).toBe('apples');
+  expect(ll.head.next.next.value).toBe('cucumbers');
+  expect(ll.head.next.next.next.value).toBe('watermelon');
+  expect(ll.head.next.next.next.next).toBe(undefined);
 })
 
 it('should return false when checking an empty list for an included value', () => {
