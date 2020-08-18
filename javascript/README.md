@@ -82,7 +82,7 @@ LinkedList builds off of a Node class by creating new instances of Node that can
 ---
 
 # Linked List - Extended Classes
-Add new classes to our linked list class to allow for more functionality
+Add new methods to our linked list class to allow for more functionality
 
 ## Challenge
 Create 3 new methods for the linked list class begun on Friday:
@@ -127,3 +127,34 @@ Create 3 new methods for the linked list class begun on Friday:
 
 ## Solution
 ![Whiteboard Image](data-structures/linkedList/cc_06_whiteboard.png)
+
+---
+
+# Linked List - Extended Classes
+Add a new linked list method that returns the value of a node 'k' away from the end of the list.
+
+## Challenge
+Write a method for the Linked List class which takes a number, k, as a parameter. Return the node’s value that is k from the end of the linked list. You have access to the Node class and all the properties on the Linked List class as well as the methods created in previous challenges.
+
+## Approach & Efficiency
+
+* First check for an empty list
+  - If list is empty, console log that list is currently empty and stop here.
+* Then confirm that the provided value of k is not a negative integer
+  - If it IS a negative integer, console log that k is invalid and stop here.
+* Once we've established a valid list and k value, we can declare a variable listLength that is set to zero and set the currentNode variable to this.head (the beginning of our list).
+* Begin a while loop that will traverse the full length of the list, adding to the listLength every time it moves from node to node
+  - Because we want to return the value of the LAST node when entering a k value of 0, we will use array logic for the listLength so that a list with 1 node would return a listLength of 0
+* After establishing the listLength, we will calculate a targetNode by subtracting k from the listLength (ie figure out the 'index' of k from the end)
+  - If the calculated targetNode is less than zero, return an Exception and stop here.  The k value is invalid because not enough nodes exist to meet the parameters.
+* Assuming a valid targetNode value we will reset the current node to this.head and set up a new counter that is set to zero (kCounter)
+* Next, we will set up a new while loop that will run while kcounter is less than the targetNode (i.e. we're going to count UP to the correct 'index'), stepping through each node in the list
+  - Whenever the kCounter reaches the targetNode, we will break out of our while loop, leaving currentNode set to our target of k before the end
+  - Finally, we can return the value of the current node
+  - In the case of the targetNode being zero, this second while loop will never be entered and the value of the head will be correctly returned
+
+**Big O** should be 2n where n is the number of nodes currently in the list (n for the initial traversal to establish the length of the list, and up to n for the kthFromEnd method to traverse the list as far as the target node and return that value.
+
+
+## Solution
+![Whiteboard Image](data-structures/linkedList/cc_07_whiteboard.png)
