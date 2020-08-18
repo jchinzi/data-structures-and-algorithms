@@ -137,6 +137,34 @@ class LinkedList {
     return `${stringOfValues}{ ${currentNode.value} } -> NULL`;
   }
 
+  kthFromEnd(k) {
+    if(!this.head){
+      return 'Exception: list contains no nodes';
+    }
+    if(k<0){
+      return 'Exception: please provide a k value of zero or greater';
+    }
+    let listLength = 0;
+    let currentNode = this.head;
+
+    while(currentNode.next){
+      listLength++;
+      currentNode=currentNode.next;
+    }
+    let targetNode = (listLength - k);
+    if (targetNode<0){
+      return 'Exception: List does not contain sufficient nodes for request';
+    } else {
+      currentNode = this.head;
+      let kCounter = 0
+      while(kCounter < targetNode){
+        kCounter++;
+        currentNode = currentNode.next;
+      }
+    }
+  return currentNode.value;
+  }
+
 }
 
 module.exports = LinkedList;
