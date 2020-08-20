@@ -158,3 +158,37 @@ Write a method for the Linked List class which takes a number, k, as a parameter
 
 ## Solution
 ![Whiteboard Image](data-structures/linkedList/cc_07_whiteboard.png)
+
+---
+
+# Linked List - Extended Classes
+Create a function called zipLists which takes in two linked lists and merges them in a zipperlike fashion, returning a reference to the head of the zipped list.
+
+## Challenge
+Write a function called zipLists which takes two linked lists as arguments. Zip the two linked lists together into one so that the nodes alternate between the two lists and return a reference to the head of the zipped list. Try and keep additional space down to O(1). You have access to the Node class and all the properties on the Linked List class as well as the methods created in previous challenges.
+
+
+## Approach & Efficiency
+
+* Begin by establishing that the provided arguments are viable (2 non-empty lists)
+* Establish variables current1 and current2 at the heads of list1 and list2, respectively
+  - Confirm that at least one list has more than one node
+    - If neither list has more than one node, set current1.next to current2 and stop here
+* Enter a while loop that will persist while both current1 AND current2 are not undefined:
+  - Establish a variable hold1 and set it equal to current1.next
+  - Reassign current1.next to point to current2
+  - Establish a variable hold2 and set it equal to current2.next
+  - Reassign current2.next to point to current1
+    - If hold1 is undefined (meaning that we’ve reached the end of list1), then current2.next should maintain its current reference in case we have not reached the end of the 2nd list
+  - Reassign current1 to hold1
+  - Reassign current2 to hold2
+* Once we exit the while loop, our lists should be zipped.  Return a reference to list1.head (the head of the newly zipped list)
+
+**Big O**
+
+* Time: O(n), where n = the combined length of both lists, as each will be traversed once
+* Space: O(1), because we are reassigning next values rather than creating a new list, no additional space is required
+
+
+## Solution
+![Whiteboard Image](challenges/LLZip/ll-zip.png)
