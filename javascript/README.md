@@ -247,3 +247,49 @@ The primary difference between the Stack methods and Queue methods can be unders
 - isEmpty() takes no argument, and returns a boolean indicating whether or not the queue is empty.
 
 ---
+
+# PseudoQueue
+Create a PseudoQueue class with two methods - enqueue & dequeue.
+
+## Challenge
+
+Create a brand new PseudoQueue class. 
+* Do not use an existing Queue. 
+* Instead, this PseudoQueue class will implement our standard queue interface (the two methods listed below), but will internally only utilize 2 Stack objects. 
+* Ensure that you create your class with the following methods:
+    - *enqueue(value)* which inserts value into the PseudoQueue, using a first-in, first-out approach.
+    - *dequeue()* which extracts a value from the PseudoQueue, using a first-in, first-out approach.
+
+## Approach & Efficiency
+
+*Enqueue*  
+* Use *push* method from List to push(value) to stack1
+
+*Dequeue*  
+* Check stack1.top to confirm that the queue is not empty
+  - If it IS empty, return an exception and STOP HERE
+* Set a currentNode to stack1.top
+* Begin a while loop that will run while stack1 contains any nodes
+  - shift currentNode to currentNode.next
+  - Use *pop* method from List to remove top node from stack1 AND AT THE SAME TIME use the returned value from *pop* to *push* that value into stack1
+* After this loop has ended, we can now *pop* the top value from stack2 and save the returned value to a variable (returnValue).  This value *should* have formerly been at the bottom of stack1, aka the head of the queue
+* In order to reset our stack:
+  - Reset currentNode to stack2.top
+  - Begin another while loop that will run while stack2 contains any nodes
+    - shift currentNode to currentNode.next
+    - use the same push(pop()) combo method to shift values back from stack2 to stack1
+* Once the second loop has ended and our stacks are reset, we can return the saved returnValue value
+
+
+**Big O**  
+
+*Enqueue*
+* Time: O(1) - consistant regardless of queue length
+* Space: O(n) - one new node will be added to the total space used
+
+*Dequeue*
+* Time: O(n) - where n = the length of the list, which will be traversed twice as all nodes are shifted from list1 to list2 and back
+* Space: O(n) - one node will be removed from the total space used 
+
+## Solution
+![Whiteboard Image](challenges/queueWithStacks/queue-with-stacks.png)

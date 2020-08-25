@@ -19,3 +19,5 @@ A repo for daily code challenges completed in tandem with CodeFellows 301 & 401.
 * Code Challenge Class 10 - Stack and Queue Implementation 
   - [Stack Class](javascript/data-structures/stacksAndQueues/stacks.js)
   - [Queue Class](javascript/data-structures/stacksAndQueues/queues.js)
+
+* [Code Challenge Class 11 - Queue with Stacks](javascript/challenges/queueWithStacks/queue-with-stacks.js)
