@@ -21,3 +21,5 @@ A repo for daily code challenges completed in tandem with CodeFellows 301 & 401.
   - [Queue Class](javascript/data-structures/stacksAndQueues/queues.js)
 
 * [Code Challenge Class 11 - Queue with Stacks](javascript/challenges/queueWithStacks/queue-with-stacks.js)
+
+* [Code Challenge Class 12 - Animal Shelter](javascript/challenges/fifoAnimalShelter/fifo-animal-shelter.js)

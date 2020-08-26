@@ -284,12 +284,77 @@ Create a brand new PseudoQueue class.
 **Big O**  
 
 *Enqueue*
-* Time: O(1) - consistant regardless of queue length
+* Time: O(1) - consistent regardless of queue length
 * Space: O(n) - one new node will be added to the total space used
 
 *Dequeue*
 * Time: O(n) - where n = the length of the list, which will be traversed twice as all nodes are shifted from list1 to list2 and back
-* Space: O(n) - one node will be removed from the total space used 
+* Space: O(1) - one node will be removed from the total space used 
 
 ## Solution
 ![Whiteboard Image](challenges/queueWithStacks/queue-with-stacks.png)
+
+---
+
+# AnimalShelter Queue
+Create a .
+
+## Challenge
+
+Create a class called AnimalShelter which holds only dogs and cats. 
+* The shelter operates using a first-in, first-out approach.
+* Implement the following methods:
+    - enqueue(animal): adds animal to the shelter. 
+      - Animal can be either a dog or a cat object.
+    - dequeue(pref): returns either a dog or a cat. 
+      - If pref is not "dog" or "cat" then return null.
+
+## Approach & Efficiency
+
+*Enqueue*  
+* First, confirm that the animal TYPE is 'cat' or 'dog'
+  - If it is not, throw an error and stop here
+* Then, check to see if there are any animals already in the shelter by checking for a front value
+  - If there are no animals in the shelter:
+    - Set the new animal to be the front
+    - Set the new animal to be the rear
+  - If there is already at least 1 animal in the shelter:
+    - Set the rear.next value to point to the new animal
+    - Change the rear reference to the new animal
+
+*Dequeue*  
+* First, check to see if there are any animals in the shelter by checking for a front value
+  - If there are no animals, throw an error and stop here
+* Confirm that the pref entered is either 'cat' or 'dog'
+  - If the pref is something else, throw an error and stop here
+* Set currentAnimal to point at the front animal
+* Check the currentAnimal to see if the type matches the pref entered
+  - If it does:
+    - Save currentAnimal.value to a variable (yourNewPet)
+    - Change the front reference to point to currentAnimal.next
+    - remove the .next value from currentAnimal
+    - Return yourNewPet
+  -If it does not:
+    - Enter a while loop that will traverse the queue by replacing currentAnimal with currentAnimal.next until:
+      - currentAnimal.next.type matches pref OR
+      - currentAnimal is null (reached the end of the queue without a match)
+* If the full queue was traversed without finding a match, throw an error and stop now
+* Else, assuming a match was found:
+  - Save currentAnimal.next.value to variable yourNewPet
+  - Change the currentAnimal.next to currentAnimal.next.next to preserve the order of the queue
+  - Return yourNewPet
+
+
+
+**Big O**  
+
+*Enqueue*
+* Time: O(1) - consistent regardless of queue length
+* Space: O(1) - one new node will be added to the total space used
+
+*Dequeue*
+* Time: O(n) - where n = the length of the queue, which will be traversed once
+* Space: O(1) - one node will be removed from the total space used 
+
+## Solution
+![Whiteboard Image](challenges/fifoAnimalShelter/fifoAnimalShelter.png)
