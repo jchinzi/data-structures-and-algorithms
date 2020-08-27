@@ -344,8 +344,6 @@ Create a class called AnimalShelter which holds only dogs and cats.
   - Change the currentAnimal.next to currentAnimal.next.next to preserve the order of the queue
   - Return yourNewPet
 
-
-
 **Big O**  
 
 *Enqueue*
@@ -358,3 +356,40 @@ Create a class called AnimalShelter which holds only dogs and cats.
 
 ## Solution
 ![Whiteboard Image](challenges/fifoAnimalShelter/fifoAnimalShelter.png)
+
+---
+
+# Multi-Bracket Validation
+Confirm whether a given string has balanced brackets.
+
+## Challenge
+
+Given a string, return a boolean representing whether or not the brackets in the string are balanced. There are 3 types of brackets:
+* Round Brackets : ()
+* Square Brackets : []
+* Curly Brackets : {}
+
+## Approach & Efficiency
+
+* Establish a new Stack that will hold open brackets.
+* Establish a string including all 'Open Bracket' examples
+* Begin a for loop that will run at least as long as the length of the provided string, with each loop iterating through a value of i that can be used to reference an index of the provided string.  For each index:
+  - If the value at that index is included in the 'Open Bracket' Example, push a new node into the Stack that will hold that value
+  - If the value is any one of the three 'Close Bracket' options
+    - Check to see if the stack is currently empty.  If it is, this indicates that brackets are out of order 
+      - Return false and STOP HERE
+    - Peek at the stack 
+      - If the top value of the stack is NOT the matching open bracket, this indicates that brackets are out of order 
+        - Return false and STOP HERE
+      - If the top value of the stack is the matching open bracket, then pop the top value off the stack and continue the loop
+* Assuming the loop has completed without a false return, check to see if the Stack is currently empty.
+  - If it is, this indicates all brackets were matched.  Return true.
+  - If it is not, this indicates that an open bracket was never closed.  Return false.
+
+**Big O**  
+
+* Time: O(n) where n is the length of the string.
+* Space: O(n) where n is the length of the string, which will equal the maximum length of the stack that will be created.
+
+## Solution
+![Whiteboard Image](challenges/multiBracketValidation/multi-bracket-validation.png)
