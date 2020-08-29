@@ -393,3 +393,44 @@ Given a string, return a boolean representing whether or not the brackets in the
 
 ## Solution
 ![Whiteboard Image](challenges/multiBracketValidation/multi-bracket-validation.png)
+
+---
+
+# Stacks and Queues
+Create a BinaryTree class that contains 3 methods (preOrder(), inOrder() and postOrder()) as well as a BinarySearchTree class that contains 2 methods (add(value) & contains(value)).
+
+## Challenge
+
+* Create a Node class that has properties for the value stored in the node, the left child node, and the right child node.
+* Create a BinaryTree class
+  - Define a method for each of the depth first traversals called preOrder, inOrder, and postOrder which returns an array of the values, ordered appropriately.
+* Any exceptions or errors that come from your code should be semantic, capturable errors. For example, rather than a default error thrown by your language, your code should raise/throw a custom, semantic error that describes what went wrong in calling the methods you wrote for this lab.
+
+* Create a BinarySearchTree class
+  - Define a method named add that accepts a value, and adds a new node with that value in the correct location in the binary search tree.
+  - Define a method named contains that accepts a value, and returns a boolean indicating whether or not the value is in the tree at least once.
+
+## Approach & Efficiency
+
+The three BinaryTree methods use the same basic mechanics, each traversing the tree in a slightly different order and pushing each value into an array that will be returned.  All methods have an O(n) for time as the full tree must be traversed.  All methods have an O(n) for space where n is the number of nodes in the tree, each of which will add one value to the array that is created and returned.
+
+The Binary Search Tree method of Add traverses the tree beginning at the root and comparing each nodes value to the provided value.  If the provided value is less than the nodes value AND that node does not already have a leftChild, the new node will be created as that nodes leftChild.  If the node already has a leftChild, then the leftChild of the node becomes the new node that the value will be compared to.  This process will continue until the node can be added (with leftChild changed to rightChild in the case of the value being greater than the node value.)  This method has an O(1) for space as one new node will be added to the size of the tree and an O(n) for time, as the worst case scenario would be a fully unbalanced tree that where the new node would be added at the end of the deepest position.
+
+The Binary Search Tree method of Includes traverses the tree in a similar way as Add, but returns a boolean of true If the node value it is considering ever exactly matches the provided value.  If the value does not match and an appropriate child node is not available to move to, this indicates that the value does not exist in the tree and will return a false. 
+
+## API
+
+**BinaryTree Class**
+
+- preOrder() takes no arguments and returns an array with the values of all nodes in the tree, ordered in preOrder (root >> left >> right)
+
+- inOrder() takes no arguments and returns an array with the values of all nodes in the tree, ordered inOrder (left >> root >> right)
+
+- postOrder() takes no arguments and returns an array with the values of all nodes in the tree, ordered in postOrder (left >> right >> root)
+
+**BinarySearchTree Class**
+
+- add(value) accepts a value and adds a new node with that value in the correct location of the binary search tree 
+
+- contains(value) accepts a value as an argument and returns a boolean indicating whether or not the value is in the tree at least once
+
