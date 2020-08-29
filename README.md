@@ -25,3 +25,5 @@ A repo for daily code challenges completed in tandem with CodeFellows 301 & 401.
 * [Code Challenge Class 12 - Animal Shelter](javascript/challenges/fifoAnimalShelter/fifo-animal-shelter.js)
 
 * [Code Challenge Class 13 - Multi-bracket Validation](javascript/challenges/multiBracketValidation/multi-bracket-validation.js)
+
+* [Code Challenge Class 15 - Binary Tree and BST Implementation](javascript/data-structures/tree/tree.js)
