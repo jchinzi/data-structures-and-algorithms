@@ -24,6 +24,18 @@ it ('should instantiate an empty tree', () => {
 });
 
 // ==================================================================
+// Can successfully add to an empty tree
+
+it ('should add to an empty tree', () => {
+  const tree = new BinarySearchTree();
+  tree.add(23);
+  expect(tree).toBeTruthy();
+  expect(tree.root.value).toBe(23);
+});
+
+
+
+// ==================================================================
 // Can successfully instantiate a tree with a single root node
 
 it ('should instantiate a tree with a single root node', () => {
