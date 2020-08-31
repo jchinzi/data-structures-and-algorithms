@@ -434,3 +434,31 @@ The Binary Search Tree method of Includes traverses the tree in a similar way as
 
 - contains(value) accepts a value as an argument and returns a boolean indicating whether or not the value is in the tree at least once
 
+---
+
+# Find Maximum Value
+Given a tree, return the maximum value contained within the tree.
+
+## Challenge
+
+* Write an instance method called find-maximum-value. 
+* Without utilizing any of the built-in methods available to your language, return the maximum value stored in the tree. 
+  - You can assume that the values stored in the Binary Tree will be numeric.
+
+## Approach & Efficiency
+
+* Confirm that the tree is not empty
+  - If it is, throw an error and stop here
+* Set an initial value of maxValue equal to this.root.value
+*Traverse the full tree using a similar method to any of the earlier traversal methods, *except*
+  - Instead of adding each value to an array, compare each value to maxValue
+    - If the value is greater than maxValue, reset maxValue to equal the current value
+* After traversing the tree, return the final maxValue
+
+**Big O**  
+
+* Time: O(n) where n equals the number of nodes in the given tree.
+* Space: O(1) - one value will be held and then returned
+
+## Solution
+![Whiteboard Image](challenges/findMaxValue/findMaxValue.png)
