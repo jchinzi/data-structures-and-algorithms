@@ -30,3 +30,4 @@ A repo for daily code challenges completed in tandem with CodeFellows 301 & 401.
 
 * [Code Challenge Class 16 - Maximum Value in Tree](javascript/challenges/findMaxValue/findMaxValue.js)
 
+* [Code Challenge Class 17 - Maximum Value in Tree](javascript/challenges/fizzBuzzTree/fizz-buzz-tree.js)

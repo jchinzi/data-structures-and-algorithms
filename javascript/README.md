@@ -462,3 +462,36 @@ Given a tree, return the maximum value contained within the tree.
 
 ## Solution
 ![Whiteboard Image](challenges/findMaxValue/findMaxValue.png)
+
+---
+
+# FizzBuzz Tree
+Given a tree, change all values that are divisible by 3 & 5 into 'FizzBuzz'. Change all values that are divisible by 3 into 'Fizz'.  Change all values that are divisible by 5 into 'Buzz'.  Change all other values into strings.
+
+## Challenge
+
+* Write a function called FizzBuzzTree which takes a k-ary tree as an argument.
+* Without utilizing any of the built-in methods available to your language, determine whether or not the value of each node is divisible by 3, 5 or both. Create a new tree with the same structure as the original, but the values modified as follows:
+If the value is divisible by 3, replace the value with “Fizz”
+If the value is divisible by 5, replace the value with “Buzz”
+If the value is divisible by 3 and 5, replace the value with “FizzBuzz”
+If the value is not divisible by 3 or 5, simply turn the number into a String.
+
+## Approach & Efficiency
+
+* Confirm that the tree is not empty
+  - If it is, return and stop here
+* Enter an altered preOrder traversal beginning at the tree.root.  During the traversal, each node value will be checked
+  - If the value is divisible by both 3 & 5, change the value to ‘FizzBuzz’
+  - If the value is divisible by 3, but not 5, change the value to ‘Fizz’
+  - If the value is divisible by 5, but not 3, change the value to ‘Buzz’
+  - If the value is divisible by neither 3 nor 5, change the value to a string
+
+
+**Big O**  
+
+* Time: O(n) where n equals the number of nodes in the given tree.
+* Space: O(1) - the provided tree is changed in place, so no additional space is required
+
+## Solution
+![Whiteboard Image](challenges/fizzBuzzTree/fizz-buzz-tree.png)
