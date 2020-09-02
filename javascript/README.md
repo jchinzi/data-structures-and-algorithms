@@ -495,3 +495,34 @@ If the value is not divisible by 3 or 5, simply turn the number into a String.
 
 ## Solution
 ![Whiteboard Image](challenges/fizzBuzzTree/fizz-buzz-tree.png)
+
+---
+
+# Breadth First Traversal Method
+Extend the Binary Tree class to include a breadth first traversal method that will return all values of the tree in the order of a breadth based traversal.
+
+## Challenge
+
+* Write a breadth first traversal method which takes a Binary Tree as its unique input. Without utilizing any of the built-in methods available to your language, traverse the input tree using a Breadth-first approach, and return a list of the values in the tree in the order they were encountered.
+
+## Approach & Efficiency
+
+* First, confirm that the tree is not empty
+  - If it is, stop here (no values to return)
+* Declare an output, which will begin as an empty array.
+* Declare a new Queue and immediately enqueue the root of the tree that was passed as an argument
+* Enter a while loop that will run as long as the queue is not empty
+  - Dequeue the first item in the queue and hold the returned value as a reference of formerFront
+  - Push the value from the formerFront into the output array
+  - Check if the formerFront had a leftChild reference that is not null
+    - If it does, enqueue the referenced leftChild node
+  - Check if the formerFront had a rightChild reference that is not null
+    - If it does, enqueue the referenced rightChild node
+* After exiting the while loop (which should indicate that the full tree has been traversed and all nodes considered) return the output array
+
+## API
+
+- breadthFirst() takes a Binary Tree as an argument and returns an array with the values of all nodes in the tree, ordered in breadth first order (Top Down, Left to Right).
+
+## Solution
+![Whiteboard Image](challenges/breadthFirst/breadth-first.png)
