@@ -35,3 +35,5 @@ A repo for daily code challenges completed in tandem with CodeFellows 301 & 401.
 * [Code Challenge Class 18 - Breadth First Traversal](javascript/challenges/breadthFirst/breadth-first.js)
 
 * [Code Challenge Class 26 - Insertion Sort](javascript/challenges/insertionSort/insertion-sort.js)
+
+* [Code Challenge Class 27 - Insertion Sort](javascript/challenges/mergeSort/merge-sort.js)
