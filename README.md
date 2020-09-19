@@ -39,3 +39,5 @@ A repo for daily code challenges completed in tandem with CodeFellows 301 & 401.
 * [Code Challenge Class 27 - Insertion Sort](javascript/challenges/mergeSort/merge-sort.js)
 
 * [Code Challenge Class 28 - Quick Sort](javascript/challenges/quickSort/quick-sort.js)
+
+* [Code Challenge Class 30 - Hash Table](javascript/data-structures/hashtable/hashtable.js)

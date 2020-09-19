@@ -526,3 +526,41 @@ Extend the Binary Tree class to include a breadth first traversal method that wi
 
 ## Solution
 ![Whiteboard Image](challenges/breadthFirst/breadth-first.png)
+
+---
+
+# Hash Table
+Implement a hash table.
+
+## Challenge
+
+* Implement a Hashtable with the following methods:
+
+  - add: takes in both the key and value. This method should hash the key, and add the key and value pair to the table, handling collisions as needed.
+  - get: takes in the key and returns the value from the table.
+  - contains: takes in the key and returns a boolean, indicating if the key exists in the table already.
+  - hash: takes in an arbitrary key and returns an index in the collection.
+
+## Approach & Efficiency
+
+For this hash table I employed an empty array.  Any time an index is used for storage the first time, a linked list is instantiated at that index position.  All future entries at that same index position will be appended to that linked list.
+
+Space: O(n) - the instantiating array will take up a minimum amount of space equal to an empty array of 1024 positions, additional space will be required as nodes are added for duplicate index entries, but no space requirements grow exponentially.
+
+Time: All methods have a time efficiency of O(n)
+
+  - For the hash method, n is the length of the key string which must be iterated over to create the hash.
+
+  - All remaining methods, n is the number of nodes within a given index.  With an efficiently designed hash table, many of these indexes will have no more than one entry, bringing the efficiency to O(1)
+
+## API
+
+* add(key, value) Take in a key and value.  Add the key/value pair to the table at an index based on a hashed interpretation of the key.  Handle collisions when they happen to allow for multiple entries at the same index point.
+
+* get(key) Take in a key and return the value stored at that key from the table.  If the key does not exist in the table, return null.
+
+* contains(key) Take in a key and return a boolean of true or false based on whether or not the key exists in the table
+
+* hash(key) Take in a key and return an integer between 0 and 1024 to be used as a storage index.  The hashed valued of key must be consistent.
+
+---
