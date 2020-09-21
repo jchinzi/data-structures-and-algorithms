@@ -564,3 +564,31 @@ Time: All methods have a time efficiency of O(n)
 * hash(key) Take in a key and return an integer between 0 and 1024 to be used as a storage index.  The hashed valued of key must be consistent.
 
 ---
+
+# Repeated Word
+Return the first repeated word in a given string.
+
+## Challenge
+
+- Write a function that accepts a lengthy string parameter.
+- Without utilizing any of the built-in library methods available to your language, return the first word to occur more than once in that provided string.
+
+
+## Approach & Efficiency
+
+- Break the given string up into individual items in an array (breaking on the spaces)
+- Enter into a for loop to examine each word in the new array
+  - Normalize each word by changing the string to lowercase and removing any additional markers such as periods and commas (may need to be adjusted/expanded on)
+  - Use the hashtable method .contains to see if the given word already exists in the hash table
+    - Using the hashtable contains method is more efficent than a typical array.includes method because only the hashed key index needs to be checked rather than all possible entries
+  - If check returns true, return the word and Stop Here
+  - Else, add the word (as both key and value) to the table and continue with the for loop
+  - If no match is ever found and the for loop ends, throw an error that there was no repetition present.
+
+**Big O**  
+
+* Time: O(n) worst case scenario involves no repeated words, in which case each word in the string would need to be checked for inclusion and then added to the hash table.
+* Space: O(n) where n = the number of words in the initial string (which would be duplicated once in the initial array and again in the hash table)
+
+## Solution
+![Whiteboard Image](challenges/repeatedWord/repeated-word.png)
