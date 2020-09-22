@@ -43,3 +43,5 @@ A repo for daily code challenges completed in tandem with CodeFellows 301 & 401.
 * [Code Challenge Class 30 - Hash Table](javascript/data-structures/hashtable/hashtable.js)
 
 * [Code Challenge Class 31 - Repeated Word](javascript/challenges/repeatedWord/repeated-word.js)
+
+* [Code Challenge Class 32 - Tree Intersection](javascript/challenges/treeIntersection/tree-intersection.js)
