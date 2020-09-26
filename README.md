@@ -47,3 +47,5 @@ A repo for daily code challenges completed in tandem with CodeFellows 301 & 401.
 * [Code Challenge Class 32 - Tree Intersection](javascript/challenges/treeIntersection/tree-intersection.js)
 
 * [Code Challenge Class 33 - Left Join](javascript/challenges/leftJoin/left-join.js)
+
+* [Code Challenge Class 35 - Graph](javascript/data-structures/graph/graph.js)
