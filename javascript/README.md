@@ -654,3 +654,46 @@ Implement a simplified LEFT JOIN for 2 Hashmaps.
 
 ## Solution
 ![Whiteboard Image](challenges/leftJoin/left-join.png)
+
+---
+
+# Graph
+Implement a graph.
+
+## Challenge
+
+* Implement your own Graph. The graph should be represented as an adjacency list, and should include the following methods:
+
+- AddNode()
+  - Adds a new node to the graph
+  - Takes in the value of that node
+  - Returns the added node
+- AddEdge()
+  - Adds a new edge between two nodes in the graph
+  - Include the ability to have a “weight”
+  - Takes in the two nodes to be connected by the edge
+    - Both nodes should already be in the Graph
+- GetNodes()
+  - Returns all of the nodes in the graph as a collection (set, list, or similar)
+- GetNeighbors()
+  - Returns a collection of edges connected to the given node
+  - Takes in a given node
+  - Include the weight of the connection in the returned collection
+- Size()
+  - Returns the total number of nodes in the graph
+
+## Approach & Efficiency
+
+TBD
+
+## API
+
+* addNode(node) Take in a node.  Create a node with the value of the provided node.  Add the newly created node to the graph, and return the added node.
+
+* addEdge(origin, destination, weight) Take in two nodes already added to the graph as well as an optional weight.  Create an edge between the two nodes that includes weight.  Add the edge reference to both nodes involved.
+
+* getNodes() Return all nodes in the graph as a collection
+
+* getNeighbors(node) Take in a node.  Return a collection of edges connected to the given node, including weight if available.
+
+* size() Return the number of nodes in the graph
