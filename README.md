@@ -32,7 +32,7 @@ A repo for daily code challenges completed in tandem with CodeFellows 301 & 401.
 
 * [Code Challenge Class 17 - Maximum Value in Tree](javascript/challenges/fizzBuzzTree/fizz-buzz-tree.js)
 
-* [Code Challenge Class 18 - Breadth First Traversal](javascript/challenges/breadthFirst/breadth-first.js)
+* [Code Challenge Class 18 - Breadth First Traversal (Tree)](javascript/challenges/breadthFirst/breadth-first.js)
 
 * [Code Challenge Class 26 - Insertion Sort](javascript/challenges/insertionSort/insertion-sort.js)
 
@@ -49,3 +49,5 @@ A repo for daily code challenges completed in tandem with CodeFellows 301 & 401.
 * [Code Challenge Class 33 - Left Join](javascript/challenges/leftJoin/left-join.js)
 
 * [Code Challenge Class 35 - Graph](javascript/data-structures/graph/graph.js)
+
+* [Code Challenge Class 3 - Breadth First Traversal (Graph)](javascript/data-structures/breadthFirst/breadth-first.js)
