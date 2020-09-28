@@ -498,7 +498,7 @@ If the value is not divisible by 3 or 5, simply turn the number into a String.
 
 ---
 
-# Breadth First Traversal Method
+# Breadth First Traversal Method - Tree
 Extend the Binary Tree class to include a breadth first traversal method that will return all values of the tree in the order of a breadth based traversal.
 
 ## Challenge
@@ -697,3 +697,33 @@ TBD
 * getNeighbors(node) Take in a node.  Return a collection of edges connected to the given node, including weight if available.
 
 * size() Return the number of nodes in the graph
+
+--
+
+# Breadth First Traversal Method - Graph
+Implement a breadth-first traversal on a graph.
+
+## Challenge
+
+* Extend your graph object with a breadth-first traversal method that accepts a starting node. Without utilizing any of the built-in methods available to your language, return a collection of nodes in the order they were visited. Display the collection.
+
+## Approach & Efficiency
+
+* Declare a target node
+  - Locate the node in the graph that matches the value of the node, and set the target node equal to *that* node
+* Declare an empty Return Set to hold values throughout the traversal
+* Declare a new Queue
+  - Enqueue the target node as a starting point for the traversal
+* Begin a while loop that will continue *while* the queue is not empty
+  - Dequeue the front node from the queue and set it equal to a holding variable (formerFront)
+  - Add the value of the formerFront to the Return Set
+  - For each neighbor of the formerFront:
+    - Check if the value of the origin node is in the Return Set.
+      - If it is *not*, enqueue the node & add the value to the Return Set
+    - Check if the value of the destination node is in the Return Set.
+      - If it is *not*, enqueue the node & add the value to the Return Set
+* Return the Return Set
+
+## API
+
+- bfTraversal() takes a node from a graph as an argument and returns a Set with the values of all nodes in the Graph, ordered in breadth first order.

@@ -68,7 +68,7 @@ addEdge(origin, destination, weight){
       throw new Error('Must connect two nodes that have previously been added to the graph');
     }
       // Else, create a new Edge with those inputs
-      let myEdges = new Edge(origin, destination, weight);
+      let myEdges = new Edge(originNode, destinationNode, weight);
       this.vertexes.forEach(node => {
         if(node.value === origin.value){
           node.neighbors.add(myEdges);
