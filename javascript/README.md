@@ -727,3 +727,38 @@ Implement a breadth-first traversal on a graph.
 ## API
 
 - bfTraversal() takes a node from a graph as an argument and returns a Set with the values of all nodes in the Graph, ordered in breadth first order.
+
+---
+
+# Get Edge
+Given a business trip itinerary, and an Alaska Airlines route map, is the trip possible with direct flights? If so, how much will the total trip cost be?
+
+## Challenge
+
+- Write a function based on the specifications above, which takes in a graph, and an array of city names. 
+- Without utilizing any of the built-in methods available to your language, return whether the full trip is possible with direct flights, and how much it would cost.
+
+## Approach & Efficiency
+
+* Declare an Origin Node
+  - Search the vertexes of the given graph for a node whose value equals the value of array[0](initial location) and when found, set the originNode equal to that node
+* Declare a boolean that is set to true
+* Declare a cost set to 0
+* Enter a for loop that will run from i=0 till i reaches the array length, incrementing each loop
+  - Use getNeighbors() to return the neighbors of the current originNode
+  - Confirm that the next destination (array[i]) is present in the returned neighbors
+    - If it is not, we cannot complete our trip with direct flights.  Return false and $0
+  - Once confirmed, update the cost to += the value attached to the matching neighbor
+  - Check the array to confirm if there is a next destination
+    - If there is, find the approprate node and update originNode accordingly.
+* Return the boolean and the cost, formatted as needed.
+
+**Big O**  
+
+* Time: O(n) where n is the length of the input array
+* Space: O(1)* because we are creating two variables, a boolean and a number
+
+## Solution
+![Whiteboard Image](challenges/getEdge/tripPlanner.png)
+
+---
