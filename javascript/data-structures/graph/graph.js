@@ -87,7 +87,7 @@ addEdge(origin, destination, weight){
 
   getNeighbors(node){
     // create a new set
-    let myNeighbors = new Set();
+    let myNeighbors = {};
     let targetNode;
     this.vertexes.forEach(entry => {
       if(entry.value === node.value){
@@ -97,9 +97,9 @@ addEdge(origin, destination, weight){
     // check all neighbors, and add neighbors (and the weight of the edge) that are not the same as the node to our new set
     targetNode.neighbors.forEach(edge => {
       if(edge.origin.value===targetNode.value){
-        myNeighbors.add([edge.destination.value, edge.weight]);
+        myNeighbors[edge.destination.value]=(edge.weight);
       } else {
-        myNeighbors.add([edge.origin.value, edge.weight]);
+        myNeighbors[edge.origin.value]=(edge.weight);
       }
     })
     // return the new set
