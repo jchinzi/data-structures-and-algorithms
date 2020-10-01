@@ -761,4 +761,35 @@ Given a business trip itinerary, and an Alaska Airlines route map, is the trip p
 ## Solution
 ![Whiteboard Image](challenges/getEdge/tripPlanner.png)
 
+--
+
+# Depth First Traversal Method - Graph
+Conduct a depth first preorder traversal on a graph.
+
+## Challenge
+
+* Create a function that accepts an adjacency list as a graph, and conducts a depth first traversal. Without utilizing any of the built-in methods available to your language, return a collection of nodes in their pre-order depth-first traversal order.
+<!-- Note: My solution takes in a root node rather than an adjacency list -->
+
+## Approach & Efficiency
+
+* Declare an empty 'visitedSet' to hold visited node values
+* Declare an empty stack to track the traversal order
+  - Push the root node into the stack
+* Begin a while loop that will continue until the stack isEmpty()
+  - Set a 'currentTop' value equal to the top of the stack using peek()
+  - Add the value of the currentTop to the visitedSet
+  - Declare an 'allChildrenVisited' condition to the boolean 'true'
+  - Use getNeighbors with the argument of currentTop to retrieve all children of the top node in the stack
+    - For each child, check to see if it's value is already in the visitedSet
+    - If it is NOT:
+      - Set allChildrenVisited to false
+      - Push the child node into the traversalStack
+  - If - after checking all children, allChildrenVisited remains true, then Pop the top node off the stack
+* After exiting the while loop, return the visitedSet
+
+## API
+
+- dfTraversal() takes a node from a graph as an argument and returns a Set with the values of all nodes in the Graph, ordered in depth first order.
+
 ---

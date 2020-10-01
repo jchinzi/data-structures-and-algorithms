@@ -1,6 +1,6 @@
 'use strict'
 
-const {Node} = require('../graph/graph');
+const {Node} = require('../graph');
 const bfGraph = require('./breadth-first');
 
 // Test Graph Components
