@@ -1,7 +1,7 @@
 'use strict'
 
-const {Graph} = require('../graph/graph');
-const Queue = require('../stacksAndQueues/queues');
+const {Graph} = require('../graph');
+const Queue = require('../../stacksAndQueues/queues');
 
 class bfGraph extends Graph {
 

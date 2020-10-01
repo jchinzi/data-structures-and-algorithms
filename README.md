@@ -50,6 +50,8 @@ A repo for daily code challenges completed in tandem with CodeFellows 301 & 401.
 
 * [Code Challenge Class 35 - Graph](javascript/data-structures/graph/graph.js)
 
-* [Code Challenge Class 36 - Breadth First Traversal (Graph)](javascript/data-structures/breadthFirst/breadth-first.js)
+* [Code Challenge Class 36 - Breadth First Traversal (Graph)](javascript/data-structures/graph/breadthFirst/breadth-first.js)
 
 * [Code Challenge Class 37 - Get Edge (Itinerary)](javascript/challenges/getEdge/get-edge.js)
+
+* [Code Challenge Class 38 - Depth First Traversal (Graph)](javascript/data-structures/graph/depthFirst/depth-first.js)
