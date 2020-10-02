@@ -11,7 +11,6 @@ function findClosestBowler(tree, target=100) {
 
     if(bowler.value.score === target) {
       closestSoFar = bowler;
-      // return;
       if(leadingScore === target){
         leadingPlayers.add(bowler.value.name);
       } else {
