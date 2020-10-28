@@ -793,3 +793,46 @@ Conduct a depth first preorder traversal on a graph.
 - dfTraversal() takes a node from a graph as an argument and returns a Set with the values of all nodes in the Graph, ordered in depth first order.
 
 ---
+
+# Algorithm Lanes
+Modify Algorithm Lanes problem to share the prize with multiple bowlers in case of tie
+
+## Challenge
+
+- Given a BST of players (each node must have a name and a score) and a target score, return all players with a score closest to the target score.
+
+## Approach & Efficiency
+
+* Declare closestSoFar (a node, set originally to the root of the tree)
+* Declare leadingScore (a value, set originally to the score of closestSoFar)
+* Declare leadingPlayers (a set to which we will immediately add the name of closestSoFar)
+* Declare an inner function of checkBowler to evaluate each node
+  - If the bowler does not exist, return.
+  - If the score of the bowler equals the target score:
+    - Update closestSoFar to this bowler node
+    - IF the leading score already equals the target score, add this bowlers name to the leadingPlayers Set
+    - Else:
+      - Update the leading score to equal the target
+      - Clear the leadingPlayers Set and add this players name
+  - Declare a currantDistance equal to the absolute value of the difference between the target and the current bowlers score.
+  - Declare a closestDistance equal to the absolute value of the difference between the target and the leadingScore.
+  - If the currentDistance is < closestDistance
+    - Update closestSoFar to this bowler node
+    - Update leadingScore to this bowlers score
+    - Clear the leadingPlayers Set and add this bowlers name
+  - Else, If the currentDistance = closestDistance
+    - add this bowlers name to the leadingScore Set
+* Recursively check the left or right child of each checked node based on whether their score is < or > the target
+
+* After exiting the recursive checks, return the leadingPlayers Set.
+
+
+**Big O**  
+
+* Time: O(h) where h is the height of the BST (log(n) if the tree is balanced)
+* Space: O(1)* because we are creating several variables that should remain small, but if ALL or MOST players tied for a high score the return set could become as large as n
+
+## Solution
+![Whiteboard Image](challenges/algorithmLanes/multi_winner.png)
+
+--
